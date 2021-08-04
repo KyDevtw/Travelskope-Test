@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>白頭翁不吃小米</title>
+    <!-- Google Font Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Reset CSS -->
+    <link href="./reset.css" rel="stylesheet" type="text/css" />
+    <!-- BS CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <style>
+        *{
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        nav{
+            background-color: white;
+            height: 60px;
+            padding: 0 15px;
+        }
+
+        .burger{
+            float: left;
+            width: 30px;
+            margin-top: 18px;
+        }
+
+        .desktop{
+            display: none;
+        }
+
+        .burger-draw > div{
+            font-weight: 500;
+            font-size: .8rem;
+            color: rgb(66, 66, 66);
+            margin: 20px auto;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .burger-draw > div > span:hover{
+            font-weight: 700;
+            color: #975262;
+            border-bottom: 2px solid #975262;
+        }
+
+        .title{
+            font-weight: 500;
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .logo{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid rgb(87, 87, 87);
+            box-sizing: border-box;
+            float: right;
+            margin-top: 15px;
+        }
+        section{
+            overflow: hidden;
+            position: relative;
+            font-size: 0px;
+        }
+
+        section > img{
+            width: 200%;
+            height: 250px;
+            object-position: 0% 50%;
+            object-fit: cover;
+            object-position: -200px;
+        }
+
+        section > .breed, .intro{
+            color: white;
+            position: absolute;
+            text-align: right;
+            padding: 0 15px;
+        }
+
+        .breed{
+            font-weight: 500;
+            font-size: 2.3rem;
+            line-height: 2.8rem;
+            bottom: 20%;
+        }
+
+        .intro{
+            font-size: .8rem;
+            line-height: 1rem;
+            bottom: 0%;
+        }
+
+        article{
+            background-color: #DDCCBC;
+            padding: 0 15px;
+            padding-bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contents{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            color: rgb(39, 39, 39);
+            padding-top: 50px;
+            background-color: #DDCCBC;
+        }
+
+        .contents > h3{
+            -webkit-writing-mode: vertical-lr;
+            writing-mode: vertical-lr ;
+            width: 20%;
+            font-weight: 700;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            letter-spacing: .8rem;
+            position: relative;
+        }
+
+        .contents > h3::after{
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            border-radius: 50%;
+            border: 6px solid #97526269;
+            top: 70px;
+            left: 60%;
+        }
+
+        .contents > p{
+            width: 80%;
+            font-size: .8rem;
+            line-height: 1.2rem;
+        }
+
+        .hamburger {
+            width: 30px;
+            cursor: pointer;
+        }
+
+        .hamburger .line {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: black;
+            margin-bottom: 8px;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #hamburger-1.active .line:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+        #hamburger-1.active .line:nth-child(2) {
+            opacity: 0;
+        }
+        #hamburger-1.active .line:nth-child(3) {
+            transform: translateY(-12px) rotate(-45deg);
+        }
+
+        #hamburger-2.active .line:nth-child(1) {
+            transform: translateY(12px) rotate(-45deg);
+        }
+           #hamburger-2.active .line:nth-child(2) {
+            opacity: 0;
+        }
+        #hamburger-2.active .line:nth-child(3) {
+            transform: translateY(-12px) rotate(45deg);
+        }
+
+        #hamburger-3.active .line:nth-child(1) {
+            transform: translate3d(-8px, 0, 0) rotate(-45deg) scaleX(.9);
+        }
+
+        #hamburger-3.active .line:nth-child(3) {
+            transform: translate3d(-8px, 0, 0) rotate(45deg) scaleX(.9);
+        }
+
+        #hamburger-4.active .line:nth-child(1) {
+            transform: translate3d(8px, 0, 0) rotate(45deg) scaleX(.9);
+        }
+
+        #hamburger-4.active .line:nth-child(3) {
+            transform: translate3d(8px, 0, 0) rotate(-45deg) scaleX(.9);
+        }
+
+        @media screen and (min-width: 576px) {
+            nav{
+                width: 30%;
+                height: 100vh;
+                float: left;
+            }
+
+            .logo{
+                float: none;
+                margin: 15px auto;
+            }
+
+            .hamburger{
+                display: none;
+            }
+
+            .desktop{
+                display: block;
+            }
+
+            .burger-draw > div:nth-of-type(5){
+                display: none;
+            }
+
+            section > img{
+                height: 300px;
+                object-position: -250px;
+            }
+
+            article{
+                /* height: calc(100vh - 300px); */
+            }
+
+            section > .breed, .intro{
+                text-align: left;
+            }
+
+            .contents > h3::after{
+                left: 63%;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            section > img{
+                object-position: -350px;
+            }
+
+            .breed{
+                bottom: 13%;
+            }
+            
+            .contents > h3::after{
+                left: 56%;
+            }
+        }
+
+
+        @media screen and (min-width: 992px) {
+            nav{
+                max-width: 280px;
+                padding-top: 20px;
+                position: relative;
+            }
+            
+            .logo{
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                right: calc(0% - 25px);
+                float: right;
+                z-index: 999;
+            }
+            
+            .title{
+                margin-top: 10px;
+            }
+
+            section > img{
+                height: calc(100vh - 250px);
+                object-position: -500px;
+            }
+
+            .breed{
+                bottom: 10%;
+            }
+
+            article{
+                padding-bottom: 0px;
+                height: 250px;
+            }
+
+            .contents{
+                width: 33%;
+            }
+
+            .contents > p{
+                width: 80%;
+                font-size: .8rem;
+                line-height: 1.2rem;
+                padding-left: 30px;
+            }
+
+            .contents > h3::after{
+                left: 63%;
+            }
+        }
+         @media screen and (min-width: 1200px) {
+            section > img{
+                height: calc(100vh - 250px);
+                object-position: -750px;
+            }
+         }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="burger">
+            <div id="hamburger-1" class="hamburger" data-toggle="collapse" href="#collapseExample" aria-expanded="false"
+            aria-controls="collapseExample">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </div>
+        <div class="logo"></div>
+        <h2 class="title">白頭翁不吃小米</h2>
+        <div class="burger-draw desktop">
+            <div><span>白頭翁的特性</span></div>
+            <div><span>白頭翁的故事</span></div>
+            <div><span>白頭翁的美照</span></div>
+            <div><span>白頭翁的危機</span></div>
+            <div>©</div>
+        </div>
+    </nav>
+    <div class="collapse" id="collapseExample">
+        <div class="burger-draw">
+            <div><span>白頭翁的特性</span></div>
+            <div><span>白頭翁的故事</span></div>
+            <div><span>白頭翁的美照</span></div>
+            <div><span>白頭翁的危機</span></div>
+            <div>©</div>
+        </div>
+    </div>
+    
+    <section>
+        <h1 class="breed">白頭翁(Chinese bulbul)</h1>
+        <p class="intro">又名白頭鵯。以果實、昆蟲為主食，無法消化小米、穀類。平均壽命約 8~10 年。</p>
+        <img src="./img/KfUmCKk.jpeg" alt="白頭翁停在樹梢上">
+    </section>
+    <article>
+        <div class="contents">
+            <h3>外觀</h3>
+            <p>白頭鵯體長約17到22公分，額至頭頂純黑色而富有光澤，兩眼上方至後枕白色，形成一白色枕環。耳羽後部有一白斑，此白環與白斑在黑色的頭部均極為醒目，老鳥的枕羽(後頭部)更潔白，所以又叫「白頭翁」。</p>
+        </div>
+        <div class="contents">
+            <h3>棲地</h3>
+            <p>白頭翁和麻雀、綠繡眼合稱「城市三寶」，常成群出現在平原區灌木叢、丘陵樹林地帶，以及校園、公園、庭院、行道中的各種高高的電線與樹上。</p>   
+        </div>
+        <div class="contents">
+            <h3>食性</h3>
+            <p>以果樹的漿果和種子為主食，並時常飛入果園偷吃果實，還會吃嫩葉嫩芽，尤其是胡蝶蘭的嫩葉嫩芽葉，偶爾啄食昆蟲。</p>
+        </div>
+    </article>
+
+
+
+    <!-- BS CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            $('.hamburger').on('click', function () {
+                $(this).toggleClass('active');
+            });
+
+        });
+    </script>
+</body>
+</html>
